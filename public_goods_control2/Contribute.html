@@ -3,20 +3,22 @@
 {{ block content }}
 
     <p>
-        你现在拥有 {{ C.ENDOWMENT }} 初始代币。
-    </p>
-    
+        你现在拥有<strong> {{ C.ENDOWMENT }} </strong>初始代币。    
     <p>
-        请决定向公共池投入多少代币（0-{{ C.ENDOWMENT }}之间任意整数）。
-    </p>
-    
-    <p>
-        记住：你的游戏收益= 你剩余的代币数＋（包括你在内的所有成员投入公共池的代币总数x{{ C.MULTIPLIER }}）/4
+        <strong>你抽到的角色是：{{ player_role }}</strong>
     </p>
 
+    <p class="rule">
+        <strong>你的游戏收益=你剩余的代币数＋公共池分配</strong>
+    </p>
+
+    <p class="rule">
+            <strong>例如：</strong>如果你往公共池投入1个代币，剩下19个，而你们小组四人总共往公共池投入了10个代币，那么公共池翻倍后变成20个，平均每人分5个，你最终有19+5=24个代币。
+    </p>
+    
     {{ formfields }}
 
-    {{ next_button }}
+    <button class="otree-btn-next btn btn-primary" type="submit">下一步</button>
 
 {{ endblock }}
 
@@ -28,6 +30,13 @@
     }
     label[for="id_reaction_time"], label[for="id_page_load_time"] {
         display: none;
+    }
+    /* 隐藏左上角的标题，但保留其位置 */
+    .otree-title, h1 { visibility: hidden !important; }
+    /* 将next按钮移到右下角 */
+    .otree-btn-next {
+        float: right !important;
+        margin-top: 20px !important;
     }
 </style>
 {{ endblock }}
@@ -46,3 +55,4 @@
     });
 </script>
 {{ endblock }}
+

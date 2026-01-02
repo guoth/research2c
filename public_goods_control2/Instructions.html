@@ -1,0 +1,67 @@
+{{ extends "global/Page.html" }}
+{% load static %}
+{{ block title }}实验说明{{ endblock }}
+{{ block content }}
+
+    <p>
+        你将匿名参与多轮游戏，<strong>每轮游戏规则可能不同</strong>，你的决策会影响自己和他人的收益，且无对错之分，请仔细阅读并理解每轮规则。 
+    </p>
+    
+    <p>
+        <strong>本轮游戏规则如图：</strong>
+    </p>
+    
+    <div class="rule-image-container">
+        <img src="{% static '对照组2.jpg' %}" alt="游戏规则" class="rule-image">
+    </div>
+    
+    <p>
+        请计算以下情境，以检验你对规则的理解：
+    </p>
+    
+    <p>
+        如果A向公共池投入1个代币，自己保留19个；小组四人总共向公共池投入10个代币。
+    </p>
+    
+    {{ formfields }}
+
+    <button class="otree-btn-next btn btn-primary" type="submit">下一步</button>
+
+{{ endblock }}
+
+{{ block styles }}
+<style>
+    /* 隐藏左上角的标题，但保留其位置 */
+    .otree-title, h1 { visibility: hidden !important; }
+    /* 将内容整体上移 */
+    body {
+        margin-top: -30px !important;
+    }
+    .container {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+    /* 将next按钮移到右下角 */
+    .otree-btn-next {
+        float: right !important;
+        margin-top: 15px !important;
+    }
+    .rule-image-container {
+        margin: 5px 0;
+        text-align: center;
+    }
+    .rule-image {
+        max-width: 100%;
+        max-height: 50vh;
+        height: auto;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+    /* 优化段落间距 */
+    p {
+        margin: 5px 0;
+    }
+</style>
+{{ endblock }}
