@@ -3,7 +3,7 @@ from otree.api import *
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'public_goods_control1'
+    NAME_IN_URL = 'pgcor'
     PLAYERS_PER_GROUP = 4
     NUM_ROUNDS = 2
     ENDOWMENT = cu(20)
